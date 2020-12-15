@@ -90,6 +90,7 @@ int mainMenu()
     printf("\n Please, choose your option = \n");
     printf("\n 1 = Remove | 2 = Update | 3 = Add | 4 = List | 5 = Exit \n");
     scanf("%d",&userSelection);
+    return userSelection;
 }
 
 int main()
