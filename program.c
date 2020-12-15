@@ -86,6 +86,10 @@ void updateSurvivor()
 int mainMenu() 
 {
     int userSelection;
+    printf("\n Welcome to Survivor System v1.0 \n");
+    printf("\n Please, choose your option = \n");
+    printf("\n 1 = Remove | 2 = Update | 3 = Add | 4 = List | 5 = Exit \n");
+    scanf("%d",&userSelection);
 }
 
 int main()
@@ -103,7 +107,7 @@ int main()
             updateSurvivor();
             break; 
         case 3:
-            removeSurvivor();
+            addSurvivor();
             break;
         case 4:
             survivorsList();
