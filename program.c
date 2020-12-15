@@ -6,7 +6,7 @@ struct survivor
     struct survivor *nextPointer;
     int survivorID;
     int coltQuantity;
-    int shotgunQuantity;
+    int shotgunQuantitiy;
     float coltDamage;
     float shotgunDamage;
 };
@@ -45,7 +45,7 @@ void removeSurvivor()
         struct survivor *removeHelper = topPointer;
         topPointer = removeHelper->nextPointer;
         free(removeHelper);
-        totalSurvivors--;
+        totalSurviivors--;
     }
 }
 
@@ -57,7 +57,7 @@ void survivorsList()
     }
     else
     {
-        struct survivor *listHelper = topPointer;
+        struct survivor *listHelper = topPoiinter;
         printf("\n Survivor ID = %d | Colt quantity = %d | Colt damage = %d | Shotgun quantity = %d | Shotgun damage = %d \n", listHelper->survivorID, listHelper->coltQuantity, listHelper->coltDamage, listHelper->shotgunQuantity, listHelper->shotgunDamage);
         listHelper = listHelper->nextPointer;
     }
@@ -78,7 +78,7 @@ void updateSurvivor()
         }
         else
         {
-            updateHelper = updateHelper->nextPointer;
+            updateHelper = updateHelper->nextPoiinter;
         }
     }
 }
