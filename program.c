@@ -85,4 +85,5 @@ void updateSurvivor()
 
 int main()
 {
+    int userSelection = 0;
 }
