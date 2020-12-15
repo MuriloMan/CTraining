@@ -83,7 +83,7 @@ void updateSurvivor()
     }
 }
 
-int mainMenu()
+int mainMenu() 
 {
     int userSelection;
 }
@@ -101,7 +101,7 @@ int main()
             break;
         case 2:
             updateSurvivor();
-            break;
+            break; 
         case 3:
             removeSurvivor();
             break;
