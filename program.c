@@ -83,7 +83,33 @@ void updateSurvivor()
     }
 }
 
+int mainMenu()
+{
+    int userSelection;
+}
+
 int main()
 {
     int userSelection = 0;
+    while (userSelection != 5)
+    {
+        userSelection = mainMenu();
+        switch (userSelection)
+        {
+        case 1:
+            removeSurvivor();
+            break;
+        case 2:
+            updateSurvivor();
+            break;
+        case 3:
+            removeSurvivor();
+            break;
+        case 4:
+            survivorsList();
+            break;
+        case 5:
+            break;
+        }
+    }
 }
