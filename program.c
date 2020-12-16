@@ -20,6 +20,7 @@ void addSurvivor()
 {
     struct survivor *addHelper = (struct survivor *)malloc(sizeof(struct survivor));
     addHelper->survivorID = lastSurvivorID;
+    lastSurvivorID++;
     printf("\n Colt quantity? | Colt damage? | Shotgun quantity? | Shotgun damage? \n");
     scanf("%d %f %d %f", &addHelper->coltQuantity, &addHelper->coltDamage, &addHelper->shotgunQuantity, &addHelper->shotgunDamage);
 
@@ -30,6 +31,7 @@ void addSurvivor()
     else
     {
         addHelper->nextPointer = topPointer;
+        topPointer = addHelper;
     }
     totalSurvivors++;
 }
@@ -51,15 +53,15 @@ void removeSurvivor()
 
 void survivorsList()
 {
+    struct survivor *listHelper = topPointer;
+    while (listHelper != NULL)
+    {
+        printf("\n Survivor ID = %d | Colt quantity = %d | Colt damage = %f | Shotgun quantity = %d | Shotgun damage = %f \n", listHelper->survivorID, listHelper->coltQuantity, listHelper->coltDamage, listHelper->shotgunQuantity, listHelper->shotgunDamage);
+        listHelper = listHelper->nextPointer;
+    }
     if (totalSurvivors == 0)
     {
         printf("\n Error = The pile is empty. \n");
-    }
-    else
-    {
-        struct survivor *listHelper = topPointer;
-        printf("\n Survivor ID = %d | Colt quantity = %d | Colt damage = %d | Shotgun quantity = %d | Shotgun damage = %d \n", listHelper->survivorID, listHelper->coltQuantity, listHelper->coltDamage, listHelper->shotgunQuantity, listHelper->shotgunDamage);
-        listHelper = listHelper->nextPointer;
     }
 }
 
@@ -75,6 +77,7 @@ void updateSurvivor()
         {
             printf("\n Insert the replacement values =\n");
             scanf("%d %f %d %f", &updateHelper->coltQuantity, &updateHelper->coltDamage, &updateHelper->shotgunQuantity, &updateHelper->shotgunDamage);
+            updateHelper = NULL;
         }
         else
         {
@@ -83,9 +86,14 @@ void updateSurvivor()
     }
 }
 
-int mainMenu() 
+int mainMenu()
 {
     int userSelection;
+    printf("\n Welcome to Survivor System v1.0 \n");
+    printf("\n Please, choose your option = \n");
+    printf("\n 1 = Remove | 2 = Update | 3 = Add | 4 = List | 5 = Exit \n");
+    scanf("%d", &userSelection);
+    return userSelection;
 }
 
 int main()
@@ -101,9 +109,9 @@ int main()
             break;
         case 2:
             updateSurvivor();
-            break; 
+            break;
         case 3:
-            removeSurvivor();
+            addSurvivor();
             break;
         case 4:
             survivorsList();
