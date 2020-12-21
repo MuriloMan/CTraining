@@ -27,6 +27,16 @@ void addChar()
     addAux->previousChar = NULL;
     addAux->nextChar = NULL;
     totalChars++;
+    if (totalChars == 0)
+    {
+        startIndicator = addAux;
+        endIndicator = addAux;
+    }
+    else
+    {
+        addAux->nextChar = startIndicator;
+        
+    }
 }
 
 void updateChar()
