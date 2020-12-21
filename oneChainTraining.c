@@ -75,7 +75,7 @@ struct assassin05
     int agentlvl5ID;
     int sapphireballersQuantity;
     int uziSDQuantity;
-    float sapphireballersSDDamage;
+    float sapphireballersDamage;
     float uziSDDamage;
 };
 
@@ -327,7 +327,35 @@ void updateAgent04()
         if (userChosenID04 == updateAux04->agentlvl4ID)
         {
             printf("\n Insert the new data04: Bronzeballers quantity? | Bronzeballers damage? | UMP45 quantity? | UMP45 damage? \n");
-            scanf("%d %f %d %f",updateAux04->bronzeballersQuantity,&updateAux04->bronzeballersDamage,&updateAux04->ump45Quantity,&updateAux);
+            scanf("%d %f %d %f",&updateAux04->bronzeballersQuantity,&updateAux04->bronzeballersDamage,&updateAux04->ump45SDQuantity,&updateAux04->ump45SDDamage);
+        }
+    }
+}
+
+void updateAgent05(){
+    int userChosenID05;
+    printf("\n Type the agend ID04 to be customized = \n");
+    scanf("%d",&userChosenID05);
+    struct assassin05 *updateAux05 = queueStart05;
+
+    while(updateAux05 != NULL){
+        if(userChosenID05 == updateAux05->agentlvl5ID){
+            printf("\n Insert the new data05: Sapphireballers quantity? | Sapphireballers damage? | UziSD? | UziSD? \n");
+            scanf("%d %f %d %f",&updateAux05->sapphireballersQuantity,&updateAux05->sapphireballersDamage,&updateAux05->uziSDQuantity,&updateAux05->uziSDDamage);
+        }
+    }
+}
+
+void updateAgent06(){
+    int userChosenID06;
+    printf("\n Type the agend ID5 to be customized = \n");
+    scanf("%d",&userChosenID06);
+    struct assassin06 *updateAux06 = queueStart06;
+
+    while(updateAux06 != NULL){
+        if(userChosenID06 == updateAux06->agentlvl6ID){
+            printf("\n Insert the new data06: Rubyballers quantity? | Rubyballers damage? | Knife quantity? | Knife damage? \n");
+            scanf("%d %f %d %f",&updateAux06->rubyballersQuantity,&updateAux06->rubyballersDamage,&updateAux06->knifeQuantity,&updateAux06->knifeDamage);
         }
     }
 }
