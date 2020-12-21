@@ -13,7 +13,11 @@ C Training MMITS
 
 1 - Escolha a versão a ser copiada (branch)
 > git checkout nomeBranchQueSeraCopiada
+
+2 - Criar uma nova branch
 > git branch nomeNovaBranch
+
+3 - mudar o ~head para nova branch
 > git checkout nomeNovaBranch
 
 ---
