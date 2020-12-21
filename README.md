@@ -46,6 +46,8 @@ C Training MMITS
 
 1 - Abra seu editor de code e resolva os conflitos, após terminar todos eles mande:
 > git add -A
+
+2 - Continue o merge para fechar
 > git merge --continue
 
 ---
