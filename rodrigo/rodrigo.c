@@ -55,6 +55,21 @@ void listar()
     }
 }
 
+void remover()
+{
+    if(totalPessoas == 0)
+    {
+        printf("\nA pilha está vazia\n");
+    }
+    else
+    {
+        struct pessoa *aux= topo->prox;
+        free(topo);
+        topo= aux;
+        totalPessoas --;
+    }
+}
+
 int main()
 {
     int op;
@@ -69,6 +84,10 @@ int main()
         else if (op == 2)
         {
             listar();
+        }
+        else if (op ==3)
+        {
+            remover();
         }
     } while (op != 5);
 
