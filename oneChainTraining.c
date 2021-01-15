@@ -262,6 +262,25 @@ int mainMenu10()
 
 // Understand the small code parts to understand the big code parts
 
+void addAgent()
+{
+    struct assassin *createAux = (struct assassin *)malloc(sizeof(struct assassin));
+    createAux->agentID = lastAgentID;
+    lastAgentID++;
+    printf("\n Siverballers quantity? | Silverballers damage? | Poison quantity? | Poison duration? \n");
+    scanf("%d %f %d %f", &createAux->silverballers, &createAux->silverballerDamage, &createAux->poisonQuantity, &createAux->poisonDuration);
+    if (totalAgents == 0)
+    {
+        queueStart = createAux;
+    }
+    else
+    {
+        createAux->nextAgent = queueStart;
+        queueStart = createAux;
+    }
+    totalAgents++;
+}
+
 void updateAgent()
 {
     int userChosenID;
@@ -276,6 +295,10 @@ void updateAgent()
             printf("\n Insert the new data = Silverballers quantity? | Silverballer damage? | Poison quantity? | Poison duration? \n");
             scanf("%d %f %d %f", &updateAux->silverballers, &updateAux->silverballerDamage, &updateAux->poisonQuantity, &updateAux->poisonDuration);
             updateAux = NULL;
+        }
+        else
+        {
+            updateAux = updateAux->nextAgent;
         }
     }
 }
@@ -327,54 +350,42 @@ void updateAgent04()
         if (userChosenID04 == updateAux04->agentlvl4ID)
         {
             printf("\n Insert the new data04: Bronzeballers quantity? | Bronzeballers damage? | UMP45 quantity? | UMP45 damage? \n");
-            scanf("%d %f %d %f",&updateAux04->bronzeballersQuantity,&updateAux04->bronzeballersDamage,&updateAux04->ump45SDQuantity,&updateAux04->ump45SDDamage);
+            scanf("%d %f %d %f", &updateAux04->bronzeballersQuantity, &updateAux04->bronzeballersDamage, &updateAux04->ump45SDQuantity, &updateAux04->ump45SDDamage);
         }
     }
 }
 
-void updateAgent05(){
+void updateAgent05()
+{
     int userChosenID05;
     printf("\n Type the agend ID04 to be customized = \n");
-    scanf("%d",&userChosenID05);
+    scanf("%d", &userChosenID05);
     struct assassin05 *updateAux05 = queueStart05;
 
-    while(updateAux05 != NULL){
-        if(userChosenID05 == updateAux05->agentlvl5ID){
+    while (updateAux05 != NULL)
+    {
+        if (userChosenID05 == updateAux05->agentlvl5ID)
+        {
             printf("\n Insert the new data05: Sapphireballers quantity? | Sapphireballers damage? | UziSD? | UziSD? \n");
-            scanf("%d %f %d %f",&updateAux05->sapphireballersQuantity,&updateAux05->sapphireballersDamage,&updateAux05->uziSDQuantity,&updateAux05->uziSDDamage);
+            scanf("%d %f %d %f", &updateAux05->sapphireballersQuantity, &updateAux05->sapphireballersDamage, &updateAux05->uziSDQuantity, &updateAux05->uziSDDamage);
         }
     }
 }
 
-void updateAgent06(){
+void updateAgent06()
+{
     int userChosenID06;
     printf("\n Type the agend ID5 to be customized = \n");
-    scanf("%d",&userChosenID06);
+    scanf("%d", &userChosenID06);
     struct assassin06 *updateAux06 = queueStart06;
 
-    while(updateAux06 != NULL){
-        if(userChosenID06 == updateAux06->agentlvl6ID){
+    while (updateAux06 != NULL)
+    {
+        if (userChosenID06 == updateAux06->agentlvl6ID)
+        {
             printf("\n Insert the new data06: Rubyballers quantity? | Rubyballers damage? | Knife quantity? | Knife damage? \n");
-            scanf("%d %f %d %f",&updateAux06->rubyballersQuantity,&updateAux06->rubyballersDamage,&updateAux06->knifeQuantity,&updateAux06->knifeDamage);
+            scanf("%d %f %d %f", &updateAux06->rubyballersQuantity, &updateAux06->rubyballersDamage, &updateAux06->knifeQuantity, &updateAux06->knifeDamage);
         }
-    }
-}
-
-void addAgent()
-{
-    struct assassin *createAux = (struct assassin *)malloc(sizeof(struct assassin));
-    createAux->agentID = lastAgentID;
-    lastAgentID++;
-    printf("\n Siverballers quantity? | Silverballers damage? | Poison quantity? | Poison duration? \n");
-    scanf("%d %f %d %f", &createAux->silverballers, &createAux->silverballerDamage, &createAux->poisonQuantity, &createAux->poisonDuration);
-    if (totalAgents == 0)
-    {
-        queueStart = createAux;
-    }
-    else
-    {
-        createAux->nextAgent = queueStart;
-        queueStart = createAux;
     }
 }
 
@@ -392,7 +403,7 @@ void listAgents()
     struct assassin *listAux;
     while (listAux != NULL)
     {
-        printf("\n Agent ID = %d | Silverballers quantity = %d | Silverballer damage = %f | Poison quantity = %d | Poison duration (In seconds) = %f \n", &listAux->agentID, &listAux->silverballers, &listAux->silverballerDamage, &listAux->poisonQuantity, &listAux->poisonDuration);
+        printf("\n Agent ID = %d | Silverballers quantity = %d | Silverballer damage = %f | Poison quantity = %d | Poison duration (In seconds) = %f \n", listAux->agentID, listAux->silverballers, listAux->silverballerDamage, listAux->poisonQuantity, listAux->poisonDuration);
         listAux = listAux->nextAgent;
     }
     if (totalAgents == 0)
@@ -405,9 +416,9 @@ int main(void)
 {
     int userChoice;
 
-    userChoice = mainMenu();
     switch (userChoice)
     {
+        userChoice = mainMenu();
     case 1:
         updateAgent();
         break;

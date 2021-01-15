@@ -16,7 +16,7 @@ struct survivor *topPointer;
 int totalSurvivors = 0;
 int lastSurvivorID = 1;
 
-void addSurvivor()
+void addSurvivor() // C*RUD
 {
     struct survivor *addHelper = (struct survivor *)malloc(sizeof(struct survivor));
     addHelper->survivorID = lastSurvivorID;
@@ -36,22 +36,7 @@ void addSurvivor()
     totalSurvivors++;
 }
 
-void removeSurvivor()
-{
-    if (totalSurvivors == 0)
-    {
-        printf("\n Error = The pile is empty. \n");
-    }
-    else
-    {
-        struct survivor *removeHelper = topPointer;
-        topPointer = removeHelper->nextPointer;
-        free(removeHelper);
-        totalSurvivors--;
-    }
-}
-
-void survivorsList()
+void survivorsList() // CR*UD
 {
     struct survivor *listHelper = topPointer;
     while (listHelper != NULL)
@@ -65,7 +50,7 @@ void survivorsList()
     }
 }
 
-void updateSurvivor()
+void updateSurvivor() // CRU*D
 {
     int blockCommandVar;
     struct survivor *updateHelper = topPointer;
@@ -83,6 +68,21 @@ void updateSurvivor()
         {
             updateHelper = updateHelper->nextPointer;
         }
+    }
+}
+
+void removeSurvivor() // CRUD*
+{
+    if (totalSurvivors == 0)
+    {
+        printf("\n Error = The pile is empty. \n");
+    }
+    else
+    {
+        struct survivor *removeHelper = topPointer;
+        topPointer = removeHelper->nextPointer;
+        free(removeHelper);
+        totalSurvivors--;
     }
 }
 
